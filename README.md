@@ -1,5 +1,7 @@
 # AuditOS — Foundation Build (Phase 1)
 
+![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white) ![FastAPI](https://img.shields.io/badge/FastAPI-009688?logo=fastapi&logoColor=white) ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?logo=postgresql&logoColor=white) ![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white)
+
 Autonomous Enterprise Audit & Compliance Intelligence Platform.
 This is Phase 1 of the feature-by-feature build: **architecture, database schema,
 project scaffold, and Authentication + RBAC.** Everything here is real, working
@@ -53,6 +55,19 @@ docker compose exec backend python -m app.seed
 
 Open the frontend, click **"Create your organization"**, and register — this
 creates your tenant plus your first `admin` user with every permission.
+
+## Environment variables
+
+Copy `backend/.env.example` to `backend/.env`. See it for the remaining app and Postgres settings.
+
+| Variable | Purpose | Default |
+|---|---|---|
+| `DATABASE_URL` | SQLAlchemy connection string | local PostgreSQL |
+| `REDIS_URL` | Redis connection string | `redis://localhost:6379/0` |
+| `JWT_SECRET_KEY` | JWT signing secret. Change it in production | placeholder |
+| `ACCESS_TOKEN_EXPIRE_MINUTES / REFRESH_TOKEN_EXPIRE_DAYS` | Token lifetimes | `15` / `7` |
+| `CORS_ORIGINS` | Comma-separated allowed origins | `http://localhost:5173,http://localhost:3000` |
+| `OPENAI_API_KEY / GEMINI_API_KEY` | Optional AI provider keys | empty |
 
 ## Quick start (without Docker)
 
